@@ -66,6 +66,7 @@ namespace RN
             }
         }
 
+        /* Modificado Alvaro Araujo 06/06/2019*/
         public static DataTable getRecordsByTarget(string target, string sources)
         {
             try

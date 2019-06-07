@@ -53,6 +53,8 @@ namespace Intercept_Intervals.UI
                 lvwSource.Items.Add(item.source);
             }
 
+            /* Modificado Alvaro Araujo 06/06/2019*/
+
             DataRow nuevoRegistro = dtHolesSourcesTargets.NewRow();
             nuevoRegistro["Target"] = "---Select---";
             nuevoRegistro["Code_Target"] = "-999";
@@ -71,6 +73,8 @@ namespace Intercept_Intervals.UI
             cbxTarget.DisplayMember = "target";
             cbxTarget.ValueMember = "code";
             cbxTarget.SelectedValue = "-999";
+
+            /* ********************************** */
         }
 
 
@@ -117,6 +121,7 @@ namespace Intercept_Intervals.UI
                     else
                     {
                         this._sources = selectedTags.ToArray()[0];
+                        /* Modificado Alvaro Araujo 06/06/2019*/
                         this._target = cbxTarget.SelectedValue.ToString().TrimEnd();
 
                         this.DialogResult = DialogResult.OK;

@@ -735,6 +735,7 @@ namespace Intercept_Intervals.UI
             { throw ex; }
         }
 
+        /* Modificado Alvaro Araujo 06/06/2019*/
         private void exportByTarget(string target, string sources)
         {
             DataTable dtCollarsByTarget = RN.GetDHCollars.getRecordsByTarget(target, sources);
