@@ -905,7 +905,7 @@ namespace Intercept_Intervals.UI
                                    .OrderByDescending(x => x.target);
 
 
-                cbxHole.Items.Add("---Select---");
+                cbxHole.Items.Add("Select a Hole ID");
                 foreach (var item in holesList.ToList())
                 {
                     cbxHole.Items.Add(item.pozo);

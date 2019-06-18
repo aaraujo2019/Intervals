@@ -1029,24 +1029,6 @@ namespace Intercept_Intervals.UI
                 cbxHole.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
                 cbxHole.AutoCompleteSource = AutoCompleteSource.ListItems;
 
-                //cbxSource.Items.Add("---Select---");
-                //foreach (var item in sourceList.ToList())
-                //{
-                //    cbxSource.Items.Add(item.source);
-                //}
-
-                //cbxSource.DisplayMember = "Source";
-                //cbxSource.ValueMember = "Source";
-
-                //cbxTarget.Items.Add("---Select---");
-                //foreach (var item in targetList.ToList())
-                //{
-                //    cbxTarget.Items.Add(item.target);
-                //}
-
-                //cbxTarget.DisplayMember = "Target";
-                //cbxTarget.ValueMember = "Target";
-
             }
             catch (Exception ex)
             {
