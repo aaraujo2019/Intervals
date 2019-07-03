@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Configuration;
-using System.Data.SqlClient;
-using System.Data.SqlTypes;
 using System.Data;
-using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace DataAccess
 {
@@ -112,16 +108,13 @@ namespace DataAccess
                     Conn.Connection.Close();
                     Conn.Dispose();
                     Conn = null;
-
                 }
-
             }
             catch (SqlException Ex)
             {
 
 
             }
-
         }
 
         public IDataReader GetContactsReaderGeneric(string query, SqlParameter[] arr, CommandType tipo)
@@ -132,17 +125,13 @@ namespace DataAccess
                 SetParameters(Command, arr);
                 SqlDataReader Reader;
                 Reader = Command.ExecuteReader();
-                //CloseConexion(Command);
                 return Reader;
             }
-
         }
 
         public DataSet ExecuteDataset(string query, SqlParameter[] arr, CommandType tipo)
         {
-
             SqlConnection con = GetConnection();
-
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandText = query;
             cmd.CommandType = tipo;
@@ -151,7 +140,6 @@ namespace DataAccess
             DataSet ds = new DataSet();
 
             adap.Fill(ds);
-
             adap.Dispose();
             con.Close();
             return ds;
@@ -161,7 +149,6 @@ namespace DataAccess
         public DataSet ExecuteDataset1(string query, SqlParameter[] arr, CommandType tipo)
         {
             SqlConnection con = GetConnection();
-
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandText = query;
             cmd.CommandType = tipo;
@@ -170,12 +157,8 @@ namespace DataAccess
             DataSet ds = new DataSet();
 
             adap.Fill(ds);
-
             adap.Dispose();
-
             con.Close();
-
-
             return ds;
         }
 

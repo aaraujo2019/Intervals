@@ -1,11 +1,9 @@
-﻿using System;
+﻿using Entities.Config;
+using RN.DataAccess;
+using System;
 using System.Collections.Generic;
-using System.Text;
-using DataAccess;
 using System.Data;
 using System.Data.SqlClient;
-using Entities.Config;
-using RN.DataAccess;
 
 public class clsShipment
 {

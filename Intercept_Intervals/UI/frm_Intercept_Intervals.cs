@@ -829,10 +829,6 @@ namespace Intercept_Intervals.UI
                                                              oSheet.Cells[initialRowCellidx, 8] = row[6].ToString();
                                                              oSheet.Cells[initialRowCellidx, 9] = (row[1] != null) ? row[1].ToString() : "";
 
-                                                             //var cell10 = oSheet.Range[
-                                                             //                         oSheet.Cells[initialRowCellidx, 10],
-                                                             //                         oSheet.Cells[initialRowCellidx, 10]];
-
                                                              oSheet.Cells[initialRowCellidx, 10] = row[7].ToString();
                                                              oSheet.Cells[initialRowCellidx, 11] = row[8].ToString();
 

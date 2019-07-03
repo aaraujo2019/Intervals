@@ -133,15 +133,9 @@ namespace Intercept_Intervals.UI
                 {
                     if (selectedTags.Count() > 0 && cbxTarget.SelectedValue.ToString() != "-999")
                     {
-                        StringBuilder concatenateItems = new StringBuilder();
-                        foreach (string item in selectedTags)
-                        {
-                            concatenateItems.Append("'" + item + "',");
-                        }
-
-                        this._sources = concatenateItems.ToString().TrimEnd(',');
-                        this._target = "PRO";
-                        //this._target = cbxTarget.SelectedItem.ToString();
+                        this._sources = selectedTags.ToArray()[0];
+                        /* Modificado Alvaro Araujo 03/07/2019*/
+                        this._target = cbxTarget.SelectedValue.ToString().TrimEnd();
                         this.DialogResult = DialogResult.OK;
                         this.Close();
                     }
