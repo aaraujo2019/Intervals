@@ -38,6 +38,19 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.grpValueResult = new System.Windows.Forms.GroupBox();
             this.dtgValueCalculate = new System.Windows.Forms.DataGridView();
+            this.grpExportWell = new System.Windows.Forms.GroupBox();
+            this.dtgDetailHoleID = new System.Windows.Forms.DataGridView();
+            this.grpComments = new System.Windows.Forms.GroupBox();
+            this.txtComent = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.cbxHole = new System.Windows.Forms.ComboBox();
+            this.btnLock = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnExport = new System.Windows.Forms.Button();
+            this.btnRefresch = new System.Windows.Forms.Button();
+            this.lblSavedItems = new System.Windows.Forms.Label();
+            this.chkSelection = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Vn_mod_codes = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.jobno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dhid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.from = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,19 +61,7 @@
             this.TotalRegister = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Vn_mod = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SKDHSamples = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grpExportWell = new System.Windows.Forms.GroupBox();
-            this.dtgDetailHoleID = new System.Windows.Forms.DataGridView();
-            this.chkSelection = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Vn_mod_codes = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.grpComments = new System.Windows.Forms.GroupBox();
-            this.txtComent = new System.Windows.Forms.TextBox();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.cbxHole = new System.Windows.Forms.ComboBox();
-            this.btnLock = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnExport = new System.Windows.Forms.Button();
-            this.btnRefresch = new System.Windows.Forms.Button();
-            this.lblSavedItems = new System.Windows.Forms.Label();
+            this.SampleComments = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.grpValueResult.SuspendLayout();
@@ -160,90 +161,13 @@
             this.Ag_Grade,
             this.TotalRegister,
             this.Vn_mod,
-            this.SKDHSamples});
+            this.SKDHSamples,
+            this.SampleComments});
             this.dtgValueCalculate.Location = new System.Drawing.Point(3, 17);
             this.dtgValueCalculate.Name = "dtgValueCalculate";
-            this.dtgValueCalculate.ReadOnly = true;
             this.dtgValueCalculate.RowHeadersWidth = 30;
             this.dtgValueCalculate.Size = new System.Drawing.Size(608, 465);
             this.dtgValueCalculate.TabIndex = 112;
-            // 
-            // jobno
-            // 
-            this.jobno.DataPropertyName = "jobno";
-            this.jobno.HeaderText = "jobno";
-            this.jobno.Name = "jobno";
-            this.jobno.ReadOnly = true;
-            this.jobno.Width = 63;
-            // 
-            // dhid
-            // 
-            this.dhid.DataPropertyName = "dhid";
-            this.dhid.HeaderText = "dhid";
-            this.dhid.Name = "dhid";
-            this.dhid.ReadOnly = true;
-            this.dhid.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dhid.Width = 56;
-            // 
-            // from
-            // 
-            this.from.DataPropertyName = "from";
-            this.from.HeaderText = "from";
-            this.from.Name = "from";
-            this.from.ReadOnly = true;
-            this.from.Width = 57;
-            // 
-            // to
-            // 
-            this.to.DataPropertyName = "to";
-            this.to.HeaderText = "to";
-            this.to.Name = "to";
-            this.to.ReadOnly = true;
-            this.to.Width = 42;
-            // 
-            // Length_Grade
-            // 
-            this.Length_Grade.DataPropertyName = "LENGTH";
-            this.Length_Grade.HeaderText = "Length_Grade";
-            this.Length_Grade.Name = "Length_Grade";
-            this.Length_Grade.ReadOnly = true;
-            this.Length_Grade.Width = 111;
-            // 
-            // Au_Grade
-            // 
-            this.Au_Grade.HeaderText = "Au_Grade";
-            this.Au_Grade.Name = "Au_Grade";
-            this.Au_Grade.ReadOnly = true;
-            this.Au_Grade.Width = 87;
-            // 
-            // Ag_Grade
-            // 
-            this.Ag_Grade.HeaderText = "Ag_Grade";
-            this.Ag_Grade.Name = "Ag_Grade";
-            this.Ag_Grade.ReadOnly = true;
-            this.Ag_Grade.Width = 87;
-            // 
-            // TotalRegister
-            // 
-            this.TotalRegister.HeaderText = "TotalRegister";
-            this.TotalRegister.Name = "TotalRegister";
-            this.TotalRegister.ReadOnly = true;
-            this.TotalRegister.Width = 105;
-            // 
-            // Vn_mod
-            // 
-            this.Vn_mod.DataPropertyName = "Vn_mod";
-            this.Vn_mod.HeaderText = "Vn_mod";
-            this.Vn_mod.Name = "Vn_mod";
-            this.Vn_mod.ReadOnly = true;
-            this.Vn_mod.Width = 78;
-            // 
-            // SKDHSamples
-            // 
-            this.SKDHSamples.HeaderText = "SKDHSamples";
-            this.SKDHSamples.Name = "SKDHSamples";
-            this.SKDHSamples.ReadOnly = true;
-            this.SKDHSamples.Visible = false;
             // 
             // grpExportWell
             // 
@@ -302,22 +226,6 @@
             this.dtgDetailHoleID.Size = new System.Drawing.Size(608, 465);
             this.dtgDetailHoleID.TabIndex = 112;
             this.dtgDetailHoleID.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
-            // 
-            // chkSelection
-            // 
-            this.chkSelection.DataPropertyName = "Selection";
-            this.chkSelection.HeaderText = "Selection";
-            this.chkSelection.Name = "chkSelection";
-            this.chkSelection.ReadOnly = true;
-            this.chkSelection.Width = 40;
-            // 
-            // Vn_mod_codes
-            // 
-            this.Vn_mod_codes.DataPropertyName = "Vn_mod";
-            this.Vn_mod_codes.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
-            this.Vn_mod_codes.HeaderText = "Vn_mod ";
-            this.Vn_mod_codes.Name = "Vn_mod_codes";
-            this.Vn_mod_codes.ToolTipText = "--";
             // 
             // grpComments
             // 
@@ -447,6 +355,96 @@
             this.lblSavedItems.Text = "The changes have not been saved.";
             this.lblSavedItems.Visible = false;
             // 
+            // chkSelection
+            // 
+            this.chkSelection.DataPropertyName = "Selection";
+            this.chkSelection.HeaderText = "Selection";
+            this.chkSelection.Name = "chkSelection";
+            this.chkSelection.ReadOnly = true;
+            this.chkSelection.Width = 40;
+            // 
+            // Vn_mod_codes
+            // 
+            this.Vn_mod_codes.DataPropertyName = "Vn_mod";
+            this.Vn_mod_codes.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.Vn_mod_codes.HeaderText = "Vn_mod ";
+            this.Vn_mod_codes.Name = "Vn_mod_codes";
+            this.Vn_mod_codes.ToolTipText = "--";
+            // 
+            // jobno
+            // 
+            this.jobno.DataPropertyName = "jobno";
+            this.jobno.HeaderText = "jobno";
+            this.jobno.Name = "jobno";
+            this.jobno.Width = 63;
+            // 
+            // dhid
+            // 
+            this.dhid.DataPropertyName = "dhid";
+            this.dhid.HeaderText = "dhid";
+            this.dhid.Name = "dhid";
+            this.dhid.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dhid.Width = 56;
+            // 
+            // from
+            // 
+            this.from.DataPropertyName = "from";
+            this.from.HeaderText = "from";
+            this.from.Name = "from";
+            this.from.Width = 57;
+            // 
+            // to
+            // 
+            this.to.DataPropertyName = "to";
+            this.to.HeaderText = "to";
+            this.to.Name = "to";
+            this.to.Width = 42;
+            // 
+            // Length_Grade
+            // 
+            this.Length_Grade.DataPropertyName = "LENGTH";
+            this.Length_Grade.HeaderText = "Length_Grade";
+            this.Length_Grade.Name = "Length_Grade";
+            this.Length_Grade.Width = 111;
+            // 
+            // Au_Grade
+            // 
+            this.Au_Grade.HeaderText = "Au_Grade";
+            this.Au_Grade.Name = "Au_Grade";
+            this.Au_Grade.Width = 87;
+            // 
+            // Ag_Grade
+            // 
+            this.Ag_Grade.HeaderText = "Ag_Grade";
+            this.Ag_Grade.Name = "Ag_Grade";
+            this.Ag_Grade.Width = 87;
+            // 
+            // TotalRegister
+            // 
+            this.TotalRegister.HeaderText = "TotalRegister";
+            this.TotalRegister.Name = "TotalRegister";
+            this.TotalRegister.Width = 105;
+            // 
+            // Vn_mod
+            // 
+            this.Vn_mod.DataPropertyName = "Vn_mod";
+            this.Vn_mod.HeaderText = "Vn_mod";
+            this.Vn_mod.Name = "Vn_mod";
+            this.Vn_mod.Width = 78;
+            // 
+            // SKDHSamples
+            // 
+            this.SKDHSamples.HeaderText = "SKDHSamples";
+            this.SKDHSamples.Name = "SKDHSamples";
+            this.SKDHSamples.Visible = false;
+            this.SKDHSamples.Width = 115;
+            // 
+            // SampleComments
+            // 
+            this.SampleComments.HeaderText = "Comments";
+            this.SampleComments.Name = "SampleComments";
+            this.SampleComments.Width = 92;
+            // 
             // frm_Intercept_Intervals
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -483,6 +481,19 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.GroupBox grpValueResult;
         private System.Windows.Forms.DataGridView dtgValueCalculate;
+        private System.Windows.Forms.GroupBox grpExportWell;
+        private System.Windows.Forms.DataGridView dtgDetailHoleID;
+        private System.Windows.Forms.GroupBox grpComments;
+        private System.Windows.Forms.TextBox txtComent;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.ComboBox cbxHole;
+        private System.Windows.Forms.Button btnLock;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnExport;
+        private System.Windows.Forms.Button btnRefresch;
+        private System.Windows.Forms.Label lblSavedItems;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn chkSelection;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Vn_mod_codes;
         private System.Windows.Forms.DataGridViewTextBoxColumn jobno;
         private System.Windows.Forms.DataGridViewTextBoxColumn dhid;
         private System.Windows.Forms.DataGridViewTextBoxColumn from;
@@ -493,18 +504,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalRegister;
         private System.Windows.Forms.DataGridViewTextBoxColumn Vn_mod;
         private System.Windows.Forms.DataGridViewTextBoxColumn SKDHSamples;
-        private System.Windows.Forms.GroupBox grpExportWell;
-        private System.Windows.Forms.DataGridView dtgDetailHoleID;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn chkSelection;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Vn_mod_codes;
-        private System.Windows.Forms.GroupBox grpComments;
-        private System.Windows.Forms.TextBox txtComent;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.ComboBox cbxHole;
-        private System.Windows.Forms.Button btnLock;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button btnExport;
-        private System.Windows.Forms.Button btnRefresch;
-        private System.Windows.Forms.Label lblSavedItems;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SampleComments;
     }
 }

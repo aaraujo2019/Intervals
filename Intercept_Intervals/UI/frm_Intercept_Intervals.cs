@@ -394,7 +394,22 @@ namespace Intercept_Intervals.UI
                 }
 
                 dtgDetailHoleID.Focus();
+                InhabilitarColunmas();
             }
+        }
+
+        private void InhabilitarColunmas()
+        {
+            dtgValueCalculate.Columns[dtgValueCalculate.Columns["jobno"].Index].ReadOnly = true;
+            dtgValueCalculate.Columns[dtgValueCalculate.Columns["dhid"].Index].ReadOnly = true;
+            dtgValueCalculate.Columns[dtgValueCalculate.Columns["from"].Index].ReadOnly = true;
+            dtgValueCalculate.Columns[dtgValueCalculate.Columns["to"].Index].ReadOnly = true;
+            dtgValueCalculate.Columns[dtgValueCalculate.Columns["Length_Grade"].Index].ReadOnly = true;
+            dtgValueCalculate.Columns[dtgValueCalculate.Columns["Au_Grade"].Index].ReadOnly = true;
+            dtgValueCalculate.Columns[dtgValueCalculate.Columns["Ag_Grade"].Index].ReadOnly = true;
+            dtgValueCalculate.Columns[dtgValueCalculate.Columns["TotalRegister"].Index].ReadOnly = true;
+            dtgValueCalculate.Columns[dtgValueCalculate.Columns["Vn_mod"].Index].ReadOnly = true;
+            dtgValueCalculate.Columns[dtgValueCalculate.Columns["SKDHSamples"].Index].ReadOnly = true;
         }
 
         private void setColumsReadOnly()
@@ -431,6 +446,7 @@ namespace Intercept_Intervals.UI
             if (dtCollars.Rows.Count > 0)
                 btnExport.Enabled = true;
         }
+
         private void fillgridCalculated()
         {
             dtgValueCalculate.Rows.Clear();
@@ -577,8 +593,6 @@ namespace Intercept_Intervals.UI
                 dtgDetailHoleID.Columns[dtgDetailHoleID.Columns["SKDHSamples"].Index].Visible = false;
                 containeRegister = false;
 
-
-
                 var culturaCol = CultureInfo.GetCultureInfo("es-CO");
                 DateTime dateReporte = Convert.ToDateTime(DateTime.Now, culturaCol);
 
@@ -614,7 +628,8 @@ namespace Intercept_Intervals.UI
                     {
                         if (row.Cells[0].Value != null && Convert.ToBoolean(row.Cells[0].Value) && !String.IsNullOrEmpty(row.Cells[0].Value.ToString()))
                         {
-                            contextValue = "UPDATE [dbo].[DH_Samples]   SET      Vn_mod = '" + row.Cells[1].Value.ToString() + "' WHERE SKDHSamples =" + Convert.ToInt32(row.Cells[dtgDetailHoleID.Columns["SKDHSamples"].Index].Value) + " and HoleID ='" + row.Cells[dtgDetailHoleID.Columns["dhid"].Index].Value.ToString() + "'";
+                            contextValue = "UPDATE [dbo].[DH_Samples] SET  Vn_mod = '" + row.Cells[1].Value.ToString() + "'"
+                                + " WHERE SKDHSamples =" + Convert.ToInt32(row.Cells[dtgDetailHoleID.Columns["SKDHSamples"].Index].Value) + " and HoleID ='" + row.Cells[dtgDetailHoleID.Columns["dhid"].Index].Value.ToString() + "'";
                             LoadLog.alterdataBase(contextValue);
 
                             LoadLog.Register(dateReporte, clsRf.sUser, IpLocal, IpPublica, SerialHDD, Environment.MachineName, contextValue, "update");
@@ -623,7 +638,9 @@ namespace Intercept_Intervals.UI
                         {
                             if (row.Cells[dtgDetailHoleID.Columns["Vn_mod_codes"].Index].Value != null && !String.IsNullOrEmpty(row.Cells[dtgDetailHoleID.Columns["Vn_mod_codes"].Index].Value.ToString()))
                             {
-                                contextValue = "UPDATE [dbo].[DH_Samples]   SET      Vn_mod = Null WHERE SKDHSamples =" + Convert.ToInt32(row.Cells[dtgDetailHoleID.Columns["SKDHSamples"].Index].Value) + " and HoleID ='" + row.Cells[dtgDetailHoleID.Columns["dhid"].Index].Value.ToString() + "'";
+                                contextValue = "UPDATE [dbo].[DH_Samples]  SET  Vn_mod = Null "
+                                    + " WHERE SKDHSamples =" + Convert.ToInt32(row.Cells[dtgDetailHoleID.Columns["SKDHSamples"].Index].Value) 
+                                    + " and HoleID ='" + row.Cells[dtgDetailHoleID.Columns["dhid"].Index].Value.ToString() + "'";
                                 LoadLog.alterdataBase(contextValue);
                                 LoadLog.Register(dateReporte, clsRf.sUser, IpLocal, IpPublica, SerialHDD, Environment.MachineName, contextValue, "update");
 
@@ -639,6 +656,15 @@ namespace Intercept_Intervals.UI
                             contextValue = String.Format("SELECT Count(1) FROM DH_IntercepInterval  WHERE HoleID = @HoleID and SKDHSamples= @SKDHSamples");
                             object count = LoadLog.Exist_DB(contextValue, row.Cells[1].Value.ToString(), Convert.ToDecimal(row.Cells[9].Value));
                             LoadLog.Register(dateReporte, clsRf.sUser, IpLocal, IpPublica, SerialHDD, Environment.MachineName, contextValue, "Search");
+                            
+                            if (row.Cells[10].Value.ToString() != string.Empty)
+                            {
+                                contextValue = "UPDATE [dbo].[DH_Samples]  SET  Comments = '" + row.Cells[10].Value.ToString() + "'"
+                                    + " WHERE SKDHSamples =" + Convert.ToDecimal(row.Cells[9].Value)
+                                    + " and HoleID ='" + row.Cells[1].Value.ToString() + "'";
+                                LoadLog.alterdataBase(contextValue);
+                                LoadLog.Register(dateReporte, clsRf.sUser, IpLocal, IpPublica, SerialHDD, Environment.MachineName, contextValue, "update");
+                            }
 
                             if (Convert.ToInt32(count) > 0)
                             {
@@ -646,7 +672,11 @@ namespace Intercept_Intervals.UI
                                 if (!string.IsNullOrEmpty(txtComent.Text.Trim()))
                                 {
                                     //valueDescrioption = string.Concat(txtComent.Text, " Con intervale inicial de ", Convert.ToDecimal(row.Cells[2].Value), " hasta ", valueTo);
-                                    contextValue = "update dbo.DH_IntercepInterval set Tov=" + Convert.ToDecimal(row.Cells[3].Value) + ",Length_Grade=" + Convert.ToDecimal(row.Cells[4].Value) + ", Au_Grade=" + Convert.ToDecimal(row.Cells[5].Value) + ",Ag_Grade= " + Convert.ToDecimal(row.Cells[6].Value) + ",Comments='" + valueDescrioption + "',TotalRegister=" + Convert.ToInt32(row.Cells[7].Value) + " , Date_Event ='" + dateReporte.ToString() + "' where HoleID ='" + row.Cells[1].Value.ToString() + "' AND SKDHSamples =" + Convert.ToDecimal(row.Cells[9].Value);
+                                    contextValue = "update dbo.DH_IntercepInterval set Tov=" + Convert.ToDecimal(row.Cells[3].Value) + ",Length_Grade=" + Convert.ToDecimal(row.Cells[4].Value) 
+                                        + ", Au_Grade=" + Convert.ToDecimal(row.Cells[5].Value) + ",Ag_Grade= " + Convert.ToDecimal(row.Cells[6].Value) 
+                                        + ",Comments='" + valueDescrioption + "',TotalRegister=" + Convert.ToInt32(row.Cells[7].Value) 
+                                        + " , Date_Event ='" + dateReporte.ToString() 
+                                        + "' where HoleID ='" + row.Cells[1].Value.ToString() + "' AND SKDHSamples =" + Convert.ToDecimal(row.Cells[9].Value);
                                     LoadLog.alterdataBase(contextValue);
                                     LoadLog.Register(dateReporte, clsRf.sUser, IpLocal, IpPublica, SerialHDD, Environment.MachineName, contextValue, "Update");
 
