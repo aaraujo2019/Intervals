@@ -867,6 +867,7 @@ namespace Intercept_Intervals.UI
                                                              oSheet.Cells[initialRowCellidx, 14] = (row[17] != null) ? row[17].ToString() : "";
                                                              oSheet.Cells[initialRowCellidx, 15] = (row[18] != null) ? row[18].ToString() : "";
                                                              oSheet.Cells[initialRowCellidx, 16] = (row[19] != null) ? row[19].ToString() : "";
+                                                             oSheet.Cells[initialRowCellidx, 17] = row[22].ToString();
 
                                                              idx++;
                                                              initialRowCellidx++;
@@ -957,6 +958,7 @@ namespace Intercept_Intervals.UI
                                                              oSheet.Cells[initialRowCellidx, 14] = (dtgValueCalculate.Rows[idx].Cells[4].Value != null) ? dtgValueCalculate.Rows[idx].Cells[4].Value.ToString() : "";
                                                              oSheet.Cells[initialRowCellidx, 15] = (dtgValueCalculate.Rows[idx].Cells[5].Value != null) ? dtgValueCalculate.Rows[idx].Cells[5].Value.ToString() : "";
                                                              oSheet.Cells[initialRowCellidx, 16] = (dtgValueCalculate.Rows[idx].Cells[6].Value != null) ? dtgValueCalculate.Rows[idx].Cells[6].Value.ToString() : "";
+                                                             oSheet.Cells[initialRowCellidx, 17] = row[24].ToString();
 
                                                              idx++;
                                                              initialRowCellidx++;
