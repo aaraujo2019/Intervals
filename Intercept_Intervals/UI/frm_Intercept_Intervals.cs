@@ -21,7 +21,7 @@ namespace Intercept_Intervals.UI
 
     public partial class frm_Intercept_Intervals : Form
     {
-        DataTable dtCollars;
+        private DataTable dtCollars;
         private string excel_template_name = ConfigurationManager.AppSettings["excel_template_name"].ToString();
 
         private bool isAuditor = false;
@@ -52,7 +52,7 @@ namespace Intercept_Intervals.UI
         #endregion constructor
 
         #region Propiedades - Variables
-        DataTable generalData = new DataTable();
+        private DataTable generalData = new DataTable();
         public bool valueModificate = false;
         public bool valueFirstRecuperation = false;
         public bool containeRegister = false;
@@ -165,14 +165,22 @@ namespace Intercept_Intervals.UI
                     if (valueFilter != null)
                     {
                         if (valueFilter.Invisible > 0)
+                        {
                             c.Visible = false;
+                        }
                         else
+                        {
                             c.Visible = true;
+                        }
 
                         if (valueFilter.Disabled > 0)
+                        {
                             c.Enabled = false;
+                        }
                         else
+                        {
                             c.Enabled = true;
+                        }
                     }
                 }
             }
@@ -194,14 +202,22 @@ namespace Intercept_Intervals.UI
                 if (valueFilter != null)
                 {
                     if (valueFilter.Invisible > 0)
+                    {
                         mi.Visible = false;
+                    }
                     else
+                    {
                         mi.Visible = true;
+                    }
 
                     if (valueFilter.Disabled > 0)
+                    {
                         mi.Enabled = false;
+                    }
                     else
+                    {
                         mi.Enabled = true;
+                    }
                 }
             }
         }
@@ -256,22 +272,34 @@ namespace Intercept_Intervals.UI
         private Color setFormatColumnAu_ppm(Decimal data)
         {
             if (data > 0 && data < 1.999M)
+            {
                 return System.Drawing.ColorTranslator.FromHtml("#D9D9D9");
+            }
 
             if (data >= 2M && data < 2.999M)
+            {
                 return ColorTranslator.FromHtml("#00FFFF");
+            }
 
             if (data >= 3M && data < 3.999M)
+            {
                 return ColorTranslator.FromHtml("#00FF00");
+            }
 
             if (data >= 4M && data <= 7.999M)
+            {
                 return ColorTranslator.FromHtml("#FFFF00");
+            }
 
             if (data >= 8M && data <= 11.999M)
+            {
                 return ColorTranslator.FromHtml("#FFC000");
+            }
 
             if (data >= 12M && data <= 19.999M)
+            {
                 return ColorTranslator.FromHtml("#FF0000");
+            }
 
             return ColorTranslator.FromHtml("#FF00FF");
 
@@ -281,22 +309,34 @@ namespace Intercept_Intervals.UI
         {
 
             if (data > 0 && data < 3.999M)
+            {
                 ColorTranslator.FromHtml("#D9D9D9");
+            }
 
             if (data >= 4M && data < 5.999M)
+            {
                 return ColorTranslator.FromHtml("#00FFFF");
+            }
 
             if (data >= 6M && data < 7.999M)
+            {
                 return ColorTranslator.FromHtml("#00FF00");
+            }
 
             if (data >= 8M && data <= 15.999M)
+            {
                 return ColorTranslator.FromHtml("#FFFF00");
+            }
 
             if (data >= 16M && data <= 23.999M)
+            {
                 return ColorTranslator.FromHtml("#FFC000");
+            }
 
             if (data >= 24M && data <= 39.999M)
+            {
                 return ColorTranslator.FromHtml("#FF0000");
+            }
 
             return ColorTranslator.FromHtml("#FF00FF");
         }
@@ -430,7 +470,10 @@ namespace Intercept_Intervals.UI
                     dtgValueCalculate.Rows.Insert(i, dtCollars.Rows[i][10], dtCollars.Rows[i][9], dtCollars.Rows[i][15], dtCollars.Rows[i][16], dtCollars.Rows[i][17], dtCollars.Rows[i][18], dtCollars.Rows[i][19], dtCollars.Rows[i][20], dtCollars.Rows[i][1], dtCollars.Rows[i][21]);
 
                     if (!string.IsNullOrEmpty(dtCollars.Rows[i][20].ToString()))
+                    {
                         recordbyvnmod = Convert.ToInt32(dtCollars.Rows[i][20]) - 1;
+                    }
+
                     if (recordbyvnmod > 0)
                     {
                         dtgValueCalculate.Rows.Add(recordbyvnmod);
@@ -444,7 +487,9 @@ namespace Intercept_Intervals.UI
             }
 
             if (dtCollars.Rows.Count > 0)
+            {
                 btnExport.Enabled = true;
+            }
         }
 
         private void fillgridCalculated()
@@ -517,8 +562,9 @@ namespace Intercept_Intervals.UI
 
             dtgValueCalculate.AutoResizeColumns();
             if (dtCollars.Rows.Count > 0)
+            {
                 btnExport.Enabled = true;
-
+            }
         }
 
         private void initDatarow(DataRow newDatarow, DataRow dr, int idx)
@@ -573,7 +619,9 @@ namespace Intercept_Intervals.UI
 
                 dtCollars.Rows[e.RowIndex][e.ColumnIndex] = !Convert.ToBoolean(dtCollars.Rows[e.RowIndex][e.ColumnIndex]);
                 if (!Convert.ToBoolean(dtCollars.Rows[e.RowIndex][e.ColumnIndex]))
+                {
                     dtgDetailHoleID.Rows[e.RowIndex].Cells[1].Value = String.Empty;
+                }
 
                 dtgValueCalculate.Rows.Clear();
                 fillgridCalculated();
@@ -639,7 +687,7 @@ namespace Intercept_Intervals.UI
                             if (row.Cells[dtgDetailHoleID.Columns["Vn_mod_codes"].Index].Value != null && !String.IsNullOrEmpty(row.Cells[dtgDetailHoleID.Columns["Vn_mod_codes"].Index].Value.ToString()))
                             {
                                 contextValue = "UPDATE [dbo].[DH_Samples]  SET  Vn_mod = Null "
-                                    + " WHERE SKDHSamples =" + Convert.ToInt32(row.Cells[dtgDetailHoleID.Columns["SKDHSamples"].Index].Value) 
+                                    + " WHERE SKDHSamples =" + Convert.ToInt32(row.Cells[dtgDetailHoleID.Columns["SKDHSamples"].Index].Value)
                                     + " and HoleID ='" + row.Cells[dtgDetailHoleID.Columns["dhid"].Index].Value.ToString() + "'";
                                 LoadLog.alterdataBase(contextValue);
                                 LoadLog.Register(dateReporte, clsRf.sUser, IpLocal, IpPublica, SerialHDD, Environment.MachineName, contextValue, "update");
@@ -656,7 +704,7 @@ namespace Intercept_Intervals.UI
                             contextValue = String.Format("SELECT Count(1) FROM DH_IntercepInterval  WHERE HoleID = @HoleID and SKDHSamples= @SKDHSamples");
                             object count = LoadLog.Exist_DB(contextValue, row.Cells[1].Value.ToString(), Convert.ToDecimal(row.Cells[9].Value));
                             LoadLog.Register(dateReporte, clsRf.sUser, IpLocal, IpPublica, SerialHDD, Environment.MachineName, contextValue, "Search");
-                            
+
                             if (row.Cells[10].Value.ToString() != string.Empty)
                             {
                                 contextValue = "UPDATE [dbo].[DH_Samples]  SET  Comments = '" + row.Cells[10].Value.ToString() + "'"
@@ -672,10 +720,10 @@ namespace Intercept_Intervals.UI
                                 if (!string.IsNullOrEmpty(txtComent.Text.Trim()))
                                 {
                                     //valueDescrioption = string.Concat(txtComent.Text, " Con intervale inicial de ", Convert.ToDecimal(row.Cells[2].Value), " hasta ", valueTo);
-                                    contextValue = "update dbo.DH_IntercepInterval set Tov=" + Convert.ToDecimal(row.Cells[3].Value) + ",Length_Grade=" + Convert.ToDecimal(row.Cells[4].Value) 
-                                        + ", Au_Grade=" + Convert.ToDecimal(row.Cells[5].Value) + ",Ag_Grade= " + Convert.ToDecimal(row.Cells[6].Value) 
-                                        + ",Comments='" + valueDescrioption + "',TotalRegister=" + Convert.ToInt32(row.Cells[7].Value) 
-                                        + " , Date_Event ='" + dateReporte.ToString() 
+                                    contextValue = "update dbo.DH_IntercepInterval set Tov=" + Convert.ToDecimal(row.Cells[3].Value) + ",Length_Grade=" + Convert.ToDecimal(row.Cells[4].Value)
+                                        + ", Au_Grade=" + Convert.ToDecimal(row.Cells[5].Value) + ",Ag_Grade= " + Convert.ToDecimal(row.Cells[6].Value)
+                                        + ",Comments='" + valueDescrioption + "',TotalRegister=" + Convert.ToInt32(row.Cells[7].Value)
+                                        + " , Date_Event ='" + dateReporte.ToString()
                                         + "' where HoleID ='" + row.Cells[1].Value.ToString() + "' AND SKDHSamples =" + Convert.ToDecimal(row.Cells[9].Value);
                                     LoadLog.alterdataBase(contextValue);
                                     LoadLog.Register(dateReporte, clsRf.sUser, IpLocal, IpPublica, SerialHDD, Environment.MachineName, contextValue, "Update");
@@ -770,7 +818,9 @@ namespace Intercept_Intervals.UI
         {
             DataTable dtCollarsByTarget = RN.GetDHCollars.getRecordsByTarget(target, sources);
             if (dtCollarsByTarget.Rows.Count > 0)
+            {
                 exportDataTableBySourceOrTarget(dtCollarsByTarget, "Exploration Target: " + target + " and sources : " + sources.Trim('\''));
+            }
             else
             {
                 MessageBox.Show("There are no items to export for  target : " + target);
@@ -781,7 +831,9 @@ namespace Intercept_Intervals.UI
         {
             DataTable dtCollarsBySource = RN.GetDHCollars.getRecordsBySource(source);
             if (dtCollarsBySource.Rows.Count > 0)
+            {
                 exportDataTableBySourceOrTarget(dtCollarsBySource, "Exploration Source: " + source);
+            }
             else
             {
                 MessageBox.Show("There are no items to export for Source : " + source);
@@ -793,7 +845,9 @@ namespace Intercept_Intervals.UI
             if (cbxHole.SelectedIndex != 0)
             {
                 if (dtCollars.Rows.Count > 0)
+                {
                     exportDataTableByHoleId(dtCollars, "Exploration Hold Id: " + cbxHole.SelectedItem.ToString());
+                }
                 else
                 {
                     MessageBox.Show("There are no items to export for Hole id : " + cbxHole.SelectedItem.ToString());
@@ -862,16 +916,64 @@ namespace Intercept_Intervals.UI
                                                              oSheet.Cells[initialRowCellidx, 10] = row[7].ToString();
                                                              oSheet.Cells[initialRowCellidx, 11] = row[8].ToString();
 
-                                                             oSheet.Cells[initialRowCellidx, 12] = (row[15] != null) ? row[15].ToString() : "";
-                                                             oSheet.Cells[initialRowCellidx, 13] = (row[16] != null) ? row[16].ToString() : "";
-                                                             oSheet.Cells[initialRowCellidx, 14] = (row[17] != null) ? row[17].ToString() : "";
-                                                             oSheet.Cells[initialRowCellidx, 15] = (row[18] != null) ? row[18].ToString() : "";
-                                                             oSheet.Cells[initialRowCellidx, 16] = (row[19] != null) ? row[19].ToString() : "";
-                                                             oSheet.Cells[initialRowCellidx, 17] = row[22].ToString();
+                                                             string wHoleId = string.Empty;
+                                                             try
+                                                             {
+                                                                 wHoleId = dtgValueCalculate.Rows[idx].Cells[1].Value != null ? dtgValueCalculate.Rows[idx].Cells[1].Value.ToString() : "";
+                                                             }
+                                                             catch (Exception)
+                                                             {
+                                                                 wHoleId = dt.Rows[0][9].ToString();
+                                                             }
+                                                             
 
-                                                             idx++;
+                                                             if (dt.Rows[0][9].ToString() == wHoleId.ToString())
+                                                             {
+                                                                 oSheet.Cells[initialRowCellidx, 12] = (row[15] != null) ? row[15].ToString() : "";
+                                                                 oSheet.Cells[initialRowCellidx, 13] = (row[16] != null) ? row[16].ToString() : "";
+                                                                 oSheet.Cells[initialRowCellidx, 14] = (row[17] != null) ? row[17].ToString() : "";
+                                                                 oSheet.Cells[initialRowCellidx, 15] = (row[18] != null) ? row[18].ToString() : "";
+                                                                 oSheet.Cells[initialRowCellidx, 16] = (row[19] != null) ? row[19].ToString() : "";
+                                                             }
+                                                             else
+                                                             {
+                                                                 var dataTable = dataGridToDataTable(dtgValueCalculate);
+
+                                                                 foreach (DataRow dtRows in dataTable.Rows)
+                                                                 {
+                                                                     if (row[15].ToString() == dtRows[1].ToString())
+                                                                     {
+                                                                         oSheet.Cells[initialRowCellidx, 12] = dtRows[1].ToString();
+                                                                     }
+
+                                                                     if (row[16].ToString() == dtRows[2].ToString())
+                                                                     {
+                                                                         oSheet.Cells[initialRowCellidx, 13] = dtRows[2].ToString();
+                                                                     }
+
+                                                                     if (row[17].ToString() == dtRows[3].ToString())
+                                                                     {
+                                                                         oSheet.Cells[initialRowCellidx, 14] = dtRows[3].ToString();
+                                                                     }
+
+                                                                     if (row[18].ToString() == dtRows[4].ToString())
+                                                                     {
+                                                                         oSheet.Cells[initialRowCellidx, 15] = dtRows[4].ToString();
+                                                                     }
+
+                                                                     if (row[19].ToString() == dtRows[5].ToString())
+                                                                     {
+                                                                         oSheet.Cells[initialRowCellidx, 16] = dtRows[5].ToString();
+                                                                     }
+
+                                                                     idx++;
+                                                                 }
+                                                             }
+
+                                                             oSheet.Cells[initialRowCellidx, 17] = row[22].ToString();
                                                              initialRowCellidx++;
                                                          }
+
                                                      }
 
                                                      oXL.Visible = true;
@@ -892,6 +994,33 @@ namespace Intercept_Intervals.UI
                     MessageBox.Show(ex.Message);
                 }
             }
+        }
+
+        private DataTable dataGridToDataTable(DataGridView DataGridView1)
+        {
+            DataTable dt1 = new DataTable();
+            foreach (DataGridViewColumn columna in DataGridView1.Columns)
+            {
+                DataColumn col = new DataColumn(columna.Name);
+                dt1.Columns.Add(col);
+            }
+            //Recorrer filas
+            foreach (DataGridViewRow fila in DataGridView1.Rows)
+            {
+                DataRow dr = dt1.NewRow();
+                dr[0] = fila.Cells[0].Value != null ? fila.Cells[0].Value.ToString() : "";
+                dr[1] = fila.Cells[1].Value != null ? fila.Cells[1].Value.ToString() : "";
+                dr[2] = fila.Cells[2].Value != null ? fila.Cells[2].Value.ToString() : "";
+                dr[3] = fila.Cells[3].Value != null ? fila.Cells[3].Value.ToString() : "";
+                dr[4] = fila.Cells[4].Value != null ? fila.Cells[4].Value.ToString() : "";
+                dr[5] = fila.Cells[5].Value != null ? fila.Cells[5].Value.ToString() : "";
+                dr[6] = fila.Cells[6].Value != null ? fila.Cells[6].Value.ToString() : "";
+                dr[7] = fila.Cells[7].Value != null ? fila.Cells[7].Value.ToString() : "";
+                dr[8] = fila.Cells[8].Value != null ? fila.Cells[8].Value.ToString() : "";
+                dt1.Rows.Add(dr);
+            }
+
+            return dt1;
         }
 
         private void exportDataTableByHoleId(DataTable dt, string description)
@@ -1006,16 +1135,25 @@ namespace Intercept_Intervals.UI
             try
             {
                 if (string.IsNullOrEmpty(this.IpLocal))
+                {
                     this.IpLocal = Adress_IP.Local();
+                }
 
                 if (string.IsNullOrEmpty(this.IpPublica))
+                {
                     this.IpPublica = Adress_IP.Publica();
+                }
 
                 if (string.IsNullOrEmpty(this.SerialHDD))
+                {
                     this.SerialHDD = Adress_IP.SerialNumberDisk();
+                }
 
                 if (string.IsNullOrEmpty(this.Usuario))
+                {
                     this.Usuario = Adress_IP.SerialNumberDisk();
+                }
+
                 var culturaCol = CultureInfo.GetCultureInfo("es-CO");
                 DateTime dateReporte = Convert.ToDateTime(DateTime.Now, culturaCol);
 
