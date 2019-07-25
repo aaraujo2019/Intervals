@@ -733,7 +733,7 @@ namespace Intercept_Intervals.UI
                             object count = LoadLog.Exist_DB(contextValue, row.Cells[1].Value.ToString(), Convert.ToDecimal(row.Cells[9].Value));
                             LoadLog.Register(dateReporte, clsRf.sUser, IpLocal, IpPublica, SerialHDD, Environment.MachineName, contextValue, "Search");
 
-                            if (row.Cells[10].Value.ToString() != string.Empty)
+                            if (row.Cells[10].Value != null)
                             {
                                 contextValue = "UPDATE [dbo].[DH_Samples]  SET  Comments = '" + row.Cells[10].Value.ToString() + "'"
                                     + " WHERE SKDHSamples =" + Convert.ToDecimal(row.Cells[9].Value)
@@ -765,7 +765,7 @@ namespace Intercept_Intervals.UI
                             }
                             else
                             {
-                                contextValue = "INSERT INTO dbo.DH_IntercepInterval(HoleID,Fromv,Tov,Length_Grade,Au_Grade,Ag_Grade,Comments,TotalRegister,Vn_mod,SKDHSamples,Date_Event)VALUES(" + "'" + row.Cells[1].Value.ToString() + "'," + Convert.ToDecimal(row.Cells[2].Value) + " ," + Convert.ToDecimal(row.Cells[3].Value) + "," + Convert.ToDecimal(row.Cells[4].Value) + " ," + Convert.ToDecimal(row.Cells[5].Value) + "," + Convert.ToDecimal(row.Cells[6].Value) + ",'" + txtComent.Text + "'," + Convert.ToInt32(row.Cells[7].Value) + ",'" + row.Cells[8].Value.ToString() + "'," + row.Cells[9].Value.ToString() + ",'" + dateReporte + "')";
+                                contextValue = "INSERT INTO dbo.DH_IntercepInterval(HoleID,Fromv,Tov,Length_Grade,Au_Grade,Ag_Grade,Comments,TotalRegister,Vn_mod,SKDHSamples,Date_Event)VALUES(" + "'" + row.Cells[1].Value.ToString() + "'," + Convert.ToDecimal(row.Cells[2].Value) + " ," + Convert.ToDecimal(row.Cells[3].Value) + "," + Convert.ToDecimal(row.Cells[4].Value) + " ," + Convert.ToDecimal(row.Cells[5].Value) + "," + Convert.ToDecimal(row.Cells[6].Value) + ",'" + txtComent.Text + "'," + Convert.ToInt32(row.Cells[7].Value) + ",'" + row.Cells[8].Value.ToString() + "'," + row.Cells[9].Value.ToString() + ",CONVERT(DATETIME, '" + dateReporte.ToString("yyyy-MM-dd hh:mm:ss") + "', 120))";
                                 LoadLog.alterdataBase(contextValue);
                                 LoadLog.Register(dateReporte, clsRf.sUser, IpLocal, IpPublica, SerialHDD, Environment.MachineName, contextValue, "Update");
 
