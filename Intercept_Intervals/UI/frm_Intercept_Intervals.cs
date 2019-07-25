@@ -859,6 +859,7 @@ namespace Intercept_Intervals.UI
             }
         }
 
+        private string wHoleId = string.Empty;
         private void exportDataTableBySourceOrTarget(DataTable dt, string description)
         {
             try
@@ -916,58 +917,21 @@ namespace Intercept_Intervals.UI
                                                              oSheet.Cells[initialRowCellidx, 10] = row[7].ToString();
                                                              oSheet.Cells[initialRowCellidx, 11] = row[8].ToString();
 
-                                                             string wHoleId = string.Empty;
-                                                             try
+                                                             if (row[0].ToString() == "1")
                                                              {
-                                                                 wHoleId = dtgValueCalculate.Rows[idx].Cells[1].Value != null ? dtgValueCalculate.Rows[idx].Cells[1].Value.ToString() : "";
+                                                                 oSheet.Cells[initialRowCellidx, 12] = row[2].ToString();
+                                                                 oSheet.Cells[initialRowCellidx, 13] = row[3].ToString();
+                                                                 oSheet.Cells[initialRowCellidx, 14] = row[4].ToString();
+                                                                 oSheet.Cells[initialRowCellidx, 15] = row[7].ToString();
+                                                                 oSheet.Cells[initialRowCellidx, 16] = row[8].ToString();
                                                              }
-                                                             catch (Exception)
-                                                             {
-                                                                 wHoleId = dt.Rows[0][9].ToString();
-                                                             }
-                                                             
-
-                                                             if (dt.Rows[0][9].ToString() == wHoleId.ToString())
+                                                             else
                                                              {
                                                                  oSheet.Cells[initialRowCellidx, 12] = (row[15] != null) ? row[15].ToString() : "";
                                                                  oSheet.Cells[initialRowCellidx, 13] = (row[16] != null) ? row[16].ToString() : "";
                                                                  oSheet.Cells[initialRowCellidx, 14] = (row[17] != null) ? row[17].ToString() : "";
                                                                  oSheet.Cells[initialRowCellidx, 15] = (row[18] != null) ? row[18].ToString() : "";
                                                                  oSheet.Cells[initialRowCellidx, 16] = (row[19] != null) ? row[19].ToString() : "";
-                                                             }
-                                                             else
-                                                             {
-                                                                 var dataTable = dataGridToDataTable(dtgValueCalculate);
-
-                                                                 foreach (DataRow dtRows in dataTable.Rows)
-                                                                 {
-                                                                     if (row[15].ToString() == dtRows[1].ToString())
-                                                                     {
-                                                                         oSheet.Cells[initialRowCellidx, 12] = dtRows[1].ToString();
-                                                                     }
-
-                                                                     if (row[16].ToString() == dtRows[2].ToString())
-                                                                     {
-                                                                         oSheet.Cells[initialRowCellidx, 13] = dtRows[2].ToString();
-                                                                     }
-
-                                                                     if (row[17].ToString() == dtRows[3].ToString())
-                                                                     {
-                                                                         oSheet.Cells[initialRowCellidx, 14] = dtRows[3].ToString();
-                                                                     }
-
-                                                                     if (row[18].ToString() == dtRows[4].ToString())
-                                                                     {
-                                                                         oSheet.Cells[initialRowCellidx, 15] = dtRows[4].ToString();
-                                                                     }
-
-                                                                     if (row[19].ToString() == dtRows[5].ToString())
-                                                                     {
-                                                                         oSheet.Cells[initialRowCellidx, 16] = dtRows[5].ToString();
-                                                                     }
-
-                                                                     idx++;
-                                                                 }
                                                              }
 
                                                              oSheet.Cells[initialRowCellidx, 17] = row[22].ToString();
