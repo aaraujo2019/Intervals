@@ -492,6 +492,38 @@ namespace Intercept_Intervals.UI
             }
         }
 
+        private void loadgridCalculatedTemp(DataTable data)
+        {
+            int recordbyvnmod = 0;
+            for (int i = 0; i < data.Rows.Count; i++)
+            {
+                if (Convert.ToInt16(data.Rows[i][0]) == 1)
+                {
+                    dataGridCalculadoTemp.Rows.Insert(i, data.Rows[i][10], data.Rows[i][9], data.Rows[i][15], data.Rows[i][16], data.Rows[i][17], data.Rows[i][18], data.Rows[i][19], data.Rows[i][20], data.Rows[i][1], data.Rows[i][21]);
+
+                    if (!string.IsNullOrEmpty(data.Rows[i][20].ToString()))
+                    {
+                        recordbyvnmod = Convert.ToInt32(data.Rows[i][20]) - 1;
+                    }
+
+                    if (recordbyvnmod > 0)
+                    {
+                        dataGridCalculadoTemp.Rows.Add(recordbyvnmod);
+                        i = i + recordbyvnmod;
+                    }
+                }
+                else
+                {
+                    dataGridCalculadoTemp.Rows.Add(1);
+                }
+            }
+
+            //if (dtCollars.Rows.Count > 0)
+            //{
+            //    btnExport.Enabled = true;
+            //}
+        }
+
         private void fillgridCalculated()
         {
             dtgValueCalculate.Rows.Clear();
@@ -552,12 +584,8 @@ namespace Intercept_Intervals.UI
                         dtgValueCalculate.Rows.RemoveAt(dtgValueCalculate.Rows.Count - 1);
                     }
 
-
-
                     counter = 0;
-
                 }
-
             }
 
             dtgValueCalculate.AutoResizeColumns();
@@ -917,27 +945,22 @@ namespace Intercept_Intervals.UI
                                                              oSheet.Cells[initialRowCellidx, 10] = row[7].ToString();
                                                              oSheet.Cells[initialRowCellidx, 11] = row[8].ToString();
 
-                                                             if (row[0].ToString() == "1")
+                                                             if (dataGridCalculadoTemp.Rows.Count == 0)
                                                              {
-                                                                 oSheet.Cells[initialRowCellidx, 12] = row[2].ToString();
-                                                                 oSheet.Cells[initialRowCellidx, 13] = row[3].ToString();
-                                                                 oSheet.Cells[initialRowCellidx, 14] = row[4].ToString();
-                                                                 oSheet.Cells[initialRowCellidx, 15] = row[7].ToString();
-                                                                 oSheet.Cells[initialRowCellidx, 16] = row[8].ToString();
-                                                             }
-                                                             else
-                                                             {
-                                                                 oSheet.Cells[initialRowCellidx, 12] = (row[15] != null) ? row[15].ToString() : "";
-                                                                 oSheet.Cells[initialRowCellidx, 13] = (row[16] != null) ? row[16].ToString() : "";
-                                                                 oSheet.Cells[initialRowCellidx, 14] = (row[17] != null) ? row[17].ToString() : "";
-                                                                 oSheet.Cells[initialRowCellidx, 15] = (row[18] != null) ? row[18].ToString() : "";
-                                                                 oSheet.Cells[initialRowCellidx, 16] = (row[19] != null) ? row[19].ToString() : "";
+                                                                 loadgridCalculatedTemp(dt);
+                                                                 LoadgridCalculatedFinish(dt);
                                                              }
 
+                                                             oSheet.Cells[initialRowCellidx, 12] = (dataGridCalculadoTemp.Rows[idx].Cells[2].Value != null) ? dataGridCalculadoTemp.Rows[idx].Cells[2].Value.ToString() : "";
+                                                             oSheet.Cells[initialRowCellidx, 13] = (dataGridCalculadoTemp.Rows[idx].Cells[3].Value != null) ? dataGridCalculadoTemp.Rows[idx].Cells[3].Value.ToString() : "";
+                                                             oSheet.Cells[initialRowCellidx, 14] = (dataGridCalculadoTemp.Rows[idx].Cells[4].Value != null) ? dataGridCalculadoTemp.Rows[idx].Cells[4].Value.ToString() : "";
+                                                             oSheet.Cells[initialRowCellidx, 15] = (dataGridCalculadoTemp.Rows[idx].Cells[5].Value != null) ? dataGridCalculadoTemp.Rows[idx].Cells[5].Value.ToString() : "";
+                                                             oSheet.Cells[initialRowCellidx, 16] = (dataGridCalculadoTemp.Rows[idx].Cells[6].Value != null) ? dataGridCalculadoTemp.Rows[idx].Cells[6].Value.ToString() : "";
                                                              oSheet.Cells[initialRowCellidx, 17] = row[22].ToString();
+
+                                                             idx++;
                                                              initialRowCellidx++;
                                                          }
-
                                                      }
 
                                                      oXL.Visible = true;
@@ -959,6 +982,74 @@ namespace Intercept_Intervals.UI
                 }
             }
         }
+
+        private void LoadgridCalculatedFinish(DataTable dataTable)
+        {
+            //dataGridCalculadoTemp.DataSource = dataTable;
+            dataGridCalculadoTemp.Rows.Clear();
+            DataRow acumulative_row = dataTable.NewRow();
+            int counter = 0, rowcounter = dataTable.Rows.Count, idx = -1;
+            string vnmod = string.Empty;
+            foreach (DataRow row in dataTable.Rows)
+            {
+                idx++;
+                dataGridCalculadoTemp.Rows.Add(1);
+                if (Convert.ToInt16(row.ItemArray[0]) == 1)
+                {
+                    if (counter == 0)
+                    {
+                        initDatarow(acumulative_row, row, idx);
+                        counter++;
+                    }
+                    else
+                    {
+                        if (acumulative_row[1].ToString() == row[1].ToString())
+                        {
+                            decimal au = 0, ag = 0, len;
+                            counter++;
+                            acumulative_row[3] = row["to"];
+                            acumulative_row[4] = Convert.ToDecimal(row["to"]) - Convert.ToDecimal(acumulative_row[2]);
+                            acumulative_row[5] = row["au_ppm"];
+                            acumulative_row[6] = row["ag_ppm"];
+                            acumulative_row[7] = Convert.ToDecimal(acumulative_row[7]) + ((Decimal.TryParse(row["au_ppm"].ToString(), out au) && Decimal.TryParse(row["length"].ToString(), out len)) ? au * len : 0);
+                            acumulative_row[8] = Convert.ToDecimal(acumulative_row[8]) + ((Decimal.TryParse(row["ag_ppm"].ToString(), out au) && Decimal.TryParse(row["length"].ToString(), out len)) ? ag * len : 0);
+
+                            acumulative_row[12] = counter;
+
+                        }
+                        else
+                        {
+                            dataGridCalculadoTemp.Rows.Insert(Convert.ToInt32(acumulative_row[13]), acumulative_row[10], acumulative_row[9], acumulative_row[2], acumulative_row[3], acumulative_row[4], (Convert.ToDecimal(acumulative_row[7]) / Convert.ToDecimal(acumulative_row[4])).ToString("##,0.000"), (Convert.ToDecimal(acumulative_row[8]) / Convert.ToDecimal(acumulative_row[4])).ToString("##,0.000"), acumulative_row[12], acumulative_row[1], acumulative_row[21]);
+                            dataGridCalculadoTemp.Rows.RemoveAt(dataGridCalculadoTemp.Rows.Count - 1);
+
+                            initDatarow(acumulative_row, row, idx);
+                            counter = 1;
+                        }
+
+                    }
+
+                    if (idx == (rowcounter - 1))
+                    {
+                        dataGridCalculadoTemp.Rows.Insert(Convert.ToInt32(acumulative_row[13]), acumulative_row[10], acumulative_row[9], acumulative_row[2], acumulative_row[3], acumulative_row[4], (Convert.ToDecimal(acumulative_row[7]) / Convert.ToDecimal(acumulative_row[4])).ToString("##,0.000"), (Convert.ToDecimal(acumulative_row[8]) / Convert.ToDecimal(acumulative_row[4])).ToString("##,0.000"), acumulative_row[12], acumulative_row[1], acumulative_row[21]);
+                        dataGridCalculadoTemp.Rows.RemoveAt(dataGridCalculadoTemp.Rows.Count - 1);
+                    }
+                }
+                else
+                {
+                    //add empty row
+                    if (counter > 0)
+                    {
+                        dataGridCalculadoTemp.Rows.Insert(Convert.ToInt32(acumulative_row[13]), acumulative_row[10], acumulative_row[9], acumulative_row[2], acumulative_row[3], acumulative_row[4], (Convert.ToDecimal(acumulative_row[7]) / Convert.ToDecimal(acumulative_row[4])).ToString("##,0.000"), (Convert.ToDecimal(acumulative_row[8]) / Convert.ToDecimal(acumulative_row[4])).ToString("##,0.000"), acumulative_row[12], acumulative_row[1], acumulative_row[21]);
+                        dataGridCalculadoTemp.Rows.RemoveAt(dataGridCalculadoTemp.Rows.Count - 1);
+                    }
+
+                    counter = 0;
+                }
+            }
+
+            //return dataGridToDataTable(dtgCalculate);
+        }
+
 
         private DataTable dataGridToDataTable(DataGridView DataGridView1)
         {

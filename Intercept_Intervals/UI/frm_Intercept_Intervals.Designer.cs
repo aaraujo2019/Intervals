@@ -32,25 +32,14 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Intercept_Intervals));
             this.LblTitulos = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.grpValueResult = new System.Windows.Forms.GroupBox();
             this.dtgValueCalculate = new System.Windows.Forms.DataGridView();
-            this.grpExportWell = new System.Windows.Forms.GroupBox();
-            this.dtgDetailHoleID = new System.Windows.Forms.DataGridView();
-            this.grpComments = new System.Windows.Forms.GroupBox();
-            this.txtComent = new System.Windows.Forms.TextBox();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.cbxHole = new System.Windows.Forms.ComboBox();
-            this.btnLock = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnExport = new System.Windows.Forms.Button();
-            this.btnRefresch = new System.Windows.Forms.Button();
-            this.lblSavedItems = new System.Windows.Forms.Label();
-            this.chkSelection = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Vn_mod_codes = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.jobno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dhid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.from = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,6 +51,43 @@
             this.Vn_mod = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SKDHSamples = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SampleComments = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grpExportWell = new System.Windows.Forms.GroupBox();
+            this.dtgDetailHoleID = new System.Windows.Forms.DataGridView();
+            this.chkSelection = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Vn_mod_codes = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.grpComments = new System.Windows.Forms.GroupBox();
+            this.txtComent = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.cbxHole = new System.Windows.Forms.ComboBox();
+            this.btnLock = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnExport = new System.Windows.Forms.Button();
+            this.btnRefresch = new System.Windows.Forms.Button();
+            this.lblSavedItems = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridCalculadoTemp = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.grpValueResult.SuspendLayout();
@@ -70,6 +96,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgDetailHoleID)).BeginInit();
             this.grpComments.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridCalculadoTemp)).BeginInit();
             this.SuspendLayout();
             // 
             // LblTitulos
@@ -169,6 +197,80 @@
             this.dtgValueCalculate.Size = new System.Drawing.Size(608, 465);
             this.dtgValueCalculate.TabIndex = 112;
             // 
+            // jobno
+            // 
+            this.jobno.DataPropertyName = "jobno";
+            this.jobno.HeaderText = "jobno";
+            this.jobno.Name = "jobno";
+            this.jobno.Width = 63;
+            // 
+            // dhid
+            // 
+            this.dhid.DataPropertyName = "dhid";
+            this.dhid.HeaderText = "dhid";
+            this.dhid.Name = "dhid";
+            this.dhid.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dhid.Width = 56;
+            // 
+            // from
+            // 
+            this.from.DataPropertyName = "from";
+            this.from.HeaderText = "from";
+            this.from.Name = "from";
+            this.from.Width = 57;
+            // 
+            // to
+            // 
+            this.to.DataPropertyName = "to";
+            this.to.HeaderText = "to";
+            this.to.Name = "to";
+            this.to.Width = 42;
+            // 
+            // Length_Grade
+            // 
+            this.Length_Grade.DataPropertyName = "LENGTH";
+            this.Length_Grade.HeaderText = "Length_Grade";
+            this.Length_Grade.Name = "Length_Grade";
+            this.Length_Grade.Width = 111;
+            // 
+            // Au_Grade
+            // 
+            this.Au_Grade.HeaderText = "Au_Grade";
+            this.Au_Grade.Name = "Au_Grade";
+            this.Au_Grade.Width = 87;
+            // 
+            // Ag_Grade
+            // 
+            this.Ag_Grade.HeaderText = "Ag_Grade";
+            this.Ag_Grade.Name = "Ag_Grade";
+            this.Ag_Grade.Width = 87;
+            // 
+            // TotalRegister
+            // 
+            this.TotalRegister.HeaderText = "TotalRegister";
+            this.TotalRegister.Name = "TotalRegister";
+            this.TotalRegister.Width = 105;
+            // 
+            // Vn_mod
+            // 
+            this.Vn_mod.DataPropertyName = "Vn_mod";
+            this.Vn_mod.HeaderText = "Vn_mod";
+            this.Vn_mod.Name = "Vn_mod";
+            this.Vn_mod.Width = 78;
+            // 
+            // SKDHSamples
+            // 
+            this.SKDHSamples.HeaderText = "SKDHSamples";
+            this.SKDHSamples.Name = "SKDHSamples";
+            this.SKDHSamples.Visible = false;
+            this.SKDHSamples.Width = 115;
+            // 
+            // SampleComments
+            // 
+            this.SampleComments.HeaderText = "Comments";
+            this.SampleComments.Name = "SampleComments";
+            this.SampleComments.Width = 92;
+            // 
             // grpExportWell
             // 
             this.grpExportWell.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -227,11 +329,28 @@
             this.dtgDetailHoleID.TabIndex = 112;
             this.dtgDetailHoleID.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
+            // chkSelection
+            // 
+            this.chkSelection.DataPropertyName = "Selection";
+            this.chkSelection.HeaderText = "Selection";
+            this.chkSelection.Name = "chkSelection";
+            this.chkSelection.ReadOnly = true;
+            this.chkSelection.Width = 40;
+            // 
+            // Vn_mod_codes
+            // 
+            this.Vn_mod_codes.DataPropertyName = "Vn_mod";
+            this.Vn_mod_codes.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.Vn_mod_codes.HeaderText = "Vn_mod ";
+            this.Vn_mod_codes.Name = "Vn_mod_codes";
+            this.Vn_mod_codes.ToolTipText = "--";
+            // 
             // grpComments
             // 
             this.grpComments.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpComments.Controls.Add(this.dataGridView1);
             this.grpComments.Controls.Add(this.txtComent);
             this.grpComments.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpComments.ForeColor = System.Drawing.SystemColors.Highlight;
@@ -355,95 +474,228 @@
             this.lblSavedItems.Text = "The changes have not been saved.";
             this.lblSavedItems.Visible = false;
             // 
-            // chkSelection
+            // dataGridView1
             // 
-            this.chkSelection.DataPropertyName = "Selection";
-            this.chkSelection.HeaderText = "Selection";
-            this.chkSelection.Name = "chkSelection";
-            this.chkSelection.ReadOnly = true;
-            this.chkSelection.Width = 40;
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11});
+            this.dataGridView1.Location = new System.Drawing.Point(401, 329);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 30;
+            this.dataGridView1.Size = new System.Drawing.Size(141, 80);
+            this.dataGridView1.TabIndex = 113;
             // 
-            // Vn_mod_codes
+            // dataGridViewTextBoxColumn1
             // 
-            this.Vn_mod_codes.DataPropertyName = "Vn_mod";
-            this.Vn_mod_codes.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
-            this.Vn_mod_codes.HeaderText = "Vn_mod ";
-            this.Vn_mod_codes.Name = "Vn_mod_codes";
-            this.Vn_mod_codes.ToolTipText = "--";
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "jobno";
+            this.dataGridViewTextBoxColumn1.HeaderText = "jobno";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 63;
             // 
-            // jobno
+            // dataGridViewTextBoxColumn2
             // 
-            this.jobno.DataPropertyName = "jobno";
-            this.jobno.HeaderText = "jobno";
-            this.jobno.Name = "jobno";
-            this.jobno.Width = 63;
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "dhid";
+            this.dataGridViewTextBoxColumn2.HeaderText = "dhid";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn2.Width = 56;
             // 
-            // dhid
+            // dataGridViewTextBoxColumn3
             // 
-            this.dhid.DataPropertyName = "dhid";
-            this.dhid.HeaderText = "dhid";
-            this.dhid.Name = "dhid";
-            this.dhid.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dhid.Width = 56;
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "from";
+            this.dataGridViewTextBoxColumn3.HeaderText = "from";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Width = 57;
             // 
-            // from
+            // dataGridViewTextBoxColumn4
             // 
-            this.from.DataPropertyName = "from";
-            this.from.HeaderText = "from";
-            this.from.Name = "from";
-            this.from.Width = 57;
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "to";
+            this.dataGridViewTextBoxColumn4.HeaderText = "to";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Width = 42;
             // 
-            // to
+            // dataGridViewTextBoxColumn5
             // 
-            this.to.DataPropertyName = "to";
-            this.to.HeaderText = "to";
-            this.to.Name = "to";
-            this.to.Width = 42;
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "LENGTH";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Length_Grade";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.Width = 111;
             // 
-            // Length_Grade
+            // dataGridViewTextBoxColumn6
             // 
-            this.Length_Grade.DataPropertyName = "LENGTH";
-            this.Length_Grade.HeaderText = "Length_Grade";
-            this.Length_Grade.Name = "Length_Grade";
-            this.Length_Grade.Width = 111;
+            this.dataGridViewTextBoxColumn6.HeaderText = "Au_Grade";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.Width = 87;
             // 
-            // Au_Grade
+            // dataGridViewTextBoxColumn7
             // 
-            this.Au_Grade.HeaderText = "Au_Grade";
-            this.Au_Grade.Name = "Au_Grade";
-            this.Au_Grade.Width = 87;
+            this.dataGridViewTextBoxColumn7.HeaderText = "Ag_Grade";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.Width = 87;
             // 
-            // Ag_Grade
+            // dataGridViewTextBoxColumn8
             // 
-            this.Ag_Grade.HeaderText = "Ag_Grade";
-            this.Ag_Grade.Name = "Ag_Grade";
-            this.Ag_Grade.Width = 87;
+            this.dataGridViewTextBoxColumn8.HeaderText = "TotalRegister";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.Width = 105;
             // 
-            // TotalRegister
+            // dataGridViewTextBoxColumn9
             // 
-            this.TotalRegister.HeaderText = "TotalRegister";
-            this.TotalRegister.Name = "TotalRegister";
-            this.TotalRegister.Width = 105;
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "Vn_mod";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Vn_mod";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.Width = 78;
             // 
-            // Vn_mod
+            // dataGridViewTextBoxColumn10
             // 
-            this.Vn_mod.DataPropertyName = "Vn_mod";
-            this.Vn_mod.HeaderText = "Vn_mod";
-            this.Vn_mod.Name = "Vn_mod";
-            this.Vn_mod.Width = 78;
+            this.dataGridViewTextBoxColumn10.HeaderText = "SKDHSamples";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.Visible = false;
+            this.dataGridViewTextBoxColumn10.Width = 115;
             // 
-            // SKDHSamples
+            // dataGridViewTextBoxColumn11
             // 
-            this.SKDHSamples.HeaderText = "SKDHSamples";
-            this.SKDHSamples.Name = "SKDHSamples";
-            this.SKDHSamples.Visible = false;
-            this.SKDHSamples.Width = 115;
+            this.dataGridViewTextBoxColumn11.HeaderText = "Comments";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.Width = 92;
             // 
-            // SampleComments
+            // dataGridCalculadoTemp
             // 
-            this.SampleComments.HeaderText = "Comments";
-            this.SampleComments.Name = "SampleComments";
-            this.SampleComments.Width = 92;
+            this.dataGridCalculadoTemp.AllowUserToAddRows = false;
+            this.dataGridCalculadoTemp.AllowUserToDeleteRows = false;
+            this.dataGridCalculadoTemp.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridCalculadoTemp.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dataGridCalculadoTemp.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridCalculadoTemp.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridCalculadoTemp.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dataGridCalculadoTemp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridCalculadoTemp.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn12,
+            this.dataGridViewTextBoxColumn13,
+            this.dataGridViewTextBoxColumn14,
+            this.dataGridViewTextBoxColumn15,
+            this.dataGridViewTextBoxColumn16,
+            this.dataGridViewTextBoxColumn17,
+            this.dataGridViewTextBoxColumn18,
+            this.dataGridViewTextBoxColumn19,
+            this.dataGridViewTextBoxColumn20,
+            this.dataGridViewTextBoxColumn21,
+            this.dataGridViewTextBoxColumn22});
+            this.dataGridCalculadoTemp.Location = new System.Drawing.Point(1031, 6);
+            this.dataGridCalculadoTemp.Name = "dataGridCalculadoTemp";
+            this.dataGridCalculadoTemp.RowHeadersWidth = 30;
+            this.dataGridCalculadoTemp.Size = new System.Drawing.Size(212, 46);
+            this.dataGridCalculadoTemp.TabIndex = 153;
+            this.dataGridCalculadoTemp.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "jobno";
+            this.dataGridViewTextBoxColumn12.HeaderText = "jobno";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.Width = 63;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "dhid";
+            this.dataGridViewTextBoxColumn13.HeaderText = "dhid";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn13.Width = 56;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "from";
+            this.dataGridViewTextBoxColumn14.HeaderText = "from";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.Width = 57;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "to";
+            this.dataGridViewTextBoxColumn15.HeaderText = "to";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.Width = 42;
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "LENGTH";
+            this.dataGridViewTextBoxColumn16.HeaderText = "Length_Grade";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.Width = 111;
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.HeaderText = "Au_Grade";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.Width = 87;
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.HeaderText = "Ag_Grade";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.Width = 87;
+            // 
+            // dataGridViewTextBoxColumn19
+            // 
+            this.dataGridViewTextBoxColumn19.HeaderText = "TotalRegister";
+            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            this.dataGridViewTextBoxColumn19.Width = 105;
+            // 
+            // dataGridViewTextBoxColumn20
+            // 
+            this.dataGridViewTextBoxColumn20.DataPropertyName = "Vn_mod";
+            this.dataGridViewTextBoxColumn20.HeaderText = "Vn_mod";
+            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
+            this.dataGridViewTextBoxColumn20.Width = 78;
+            // 
+            // dataGridViewTextBoxColumn21
+            // 
+            this.dataGridViewTextBoxColumn21.HeaderText = "SKDHSamples";
+            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
+            this.dataGridViewTextBoxColumn21.Visible = false;
+            this.dataGridViewTextBoxColumn21.Width = 115;
+            // 
+            // dataGridViewTextBoxColumn22
+            // 
+            this.dataGridViewTextBoxColumn22.HeaderText = "Comments";
+            this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
+            this.dataGridViewTextBoxColumn22.Width = 92;
             // 
             // frm_Intercept_Intervals
             // 
@@ -451,6 +703,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1257, 701);
+            this.Controls.Add(this.dataGridCalculadoTemp);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.LblTitulos);
@@ -471,6 +724,8 @@
             this.grpComments.ResumeLayout(false);
             this.grpComments.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridCalculadoTemp)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -505,5 +760,29 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Vn_mod;
         private System.Windows.Forms.DataGridViewTextBoxColumn SKDHSamples;
         private System.Windows.Forms.DataGridViewTextBoxColumn SampleComments;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridView dataGridCalculadoTemp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
     }
 }
