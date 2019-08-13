@@ -549,11 +549,12 @@ namespace Intercept_Intervals.UI
                             decimal au = 0, ag = 0, len;
                             counter++;
                             acumulative_row[3] = row["to"];
-                            acumulative_row[4] = Convert.ToDecimal(row["to"]) - Convert.ToDecimal(acumulative_row[2]);
+                            acumulative_row[4] = Convert.ToDecimal(row["to"]) - Convert.ToDecimal(acumulative_row[2]);              
                             acumulative_row[5] = row["au_ppm"];
                             acumulative_row[6] = row["ag_ppm"];
+
                             acumulative_row[7] = Convert.ToDecimal(acumulative_row[7]) + ((Decimal.TryParse(row["au_ppm"].ToString(), out au) && Decimal.TryParse(row["lenght"].ToString(), out len)) ? au * len : 0);
-                            acumulative_row[8] = Convert.ToDecimal(acumulative_row[8]) + ((Decimal.TryParse(row["ag_ppm"].ToString(), out au) && Decimal.TryParse(row["lenght"].ToString(), out len)) ? ag * len : 0);
+                            acumulative_row[8] = Convert.ToDecimal(acumulative_row[8]) + ((Decimal.TryParse(row["ag_ppm"].ToString(), out ag) && Decimal.TryParse(row["lenght"].ToString(), out len)) ? ag * len : 0);
 
                             acumulative_row[12] = counter;
 
